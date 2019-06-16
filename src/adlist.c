@@ -1,3 +1,4 @@
+// comment: 双向链表实现, adlist == A generic doubly linked list
 /* adlist.c - A generic doubly linked list implementation
  *
  * Copyright (c) 2006-2010, Salvatore Sanfilippo <antirez at gmail dot com>

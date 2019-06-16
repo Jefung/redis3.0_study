@@ -1,3 +1,4 @@
+// comment: 简单动态字符串/SDS实现
 /* SDSLib, A C dynamic strings library
  *
  * Copyright (c) 2006-2012, Salvatore Sanfilippo <antirez at gmail dot com>

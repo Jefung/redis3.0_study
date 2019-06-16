@@ -70,7 +70,7 @@
 /* 默认的服务器配置值 */
 #define REDIS_DEFAULT_HZ        10      /* Time interrupt calls/sec. */
 #define REDIS_MIN_HZ            1
-#define REDIS_MAX_HZ            500 
+#define REDIS_MAX_HZ            500
 #define REDIS_SERVERPORT        6379    /* TCP port */
 #define REDIS_TCP_BACKLOG       511     /* TCP listen backlog */
 #define REDIS_MAXIDLETIME       0       /* default client timeout: infinite */
@@ -300,7 +300,7 @@
 /* Anti-warning macro... */
 #define REDIS_NOTUSED(V) ((void) V)
 
-#define ZSKIPLIST_MAXLEVEL 32 /* Should be enough for 2^32 elements */
+#define ZSKIPLIST_MAXLEVEL 32 // 跳表最高的层数
 #define ZSKIPLIST_P 0.25      /* Skiplist P = 1/4 */
 
 /* Append only defines */
@@ -634,7 +634,7 @@ typedef struct redisClient {
     off_t repldboff;        /* replication DB file offset */
     // 主服务器传来的 RDB 文件的大小
     off_t repldbsize;       /* replication DB file size */
-    
+
     sds replpreamble;       /* replication DB preamble. */
 
     // 主服务器的复制偏移量
@@ -728,7 +728,7 @@ typedef struct zskiplistNode {
     struct zskiplistLevel {
 
         // 前进指针
-        struct zskiplistNode *forward;
+        struct zskiplistNode *forward; // 即next指针
 
         // 跨度
         unsigned int span;
@@ -1281,7 +1281,7 @@ struct redisServer {
 
     // Lua 环境
     lua_State *lua; /* The Lua interpreter. We use just one for all clients */
-    
+
     // 复制执行 Lua 脚本中的 Redis 命令的伪客户端
     redisClient *lua_client;   /* The "fake client" to query Redis from Lua */
 
@@ -1721,6 +1721,7 @@ typedef struct {
     int minex, maxex; /* are min or max exclusive? */
 } zlexrangespec;
 
+// skiplist 对应操作函数
 zskiplist *zslCreate(void);
 void zslFree(zskiplist *zsl);
 zskiplistNode *zslInsert(zskiplist *zsl, double score, robj *obj);

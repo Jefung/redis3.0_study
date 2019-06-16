@@ -1,3 +1,4 @@
+// comment: 双向链表定义
 /* adlist.h - A generic doubly linked list implementation
  *
  * Copyright (c) 2006-2012, Salvatore Sanfilippo <antirez at gmail dot com>
